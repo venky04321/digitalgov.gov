@@ -1,0 +1,10 @@
+<body class="{{ $.Scratch.Get "bodyclasses" }}">
+
+  {{ if eq ($.Scratch.Get "env") "site" }}
+  {{ else }}
+    {{ partial "notice-bar.html" . }}
+  {{ end }}
+
+  {{ partial "usa-banner.html" . }}
+
+  {{ partial "header.html" . }}
