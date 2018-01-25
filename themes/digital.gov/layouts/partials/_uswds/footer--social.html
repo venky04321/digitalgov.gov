@@ -1,0 +1,5 @@
+<ul>
+  {{ range .Site.Data.social.sources }}
+    <li><a class="subicon {{ .shortcode }}" title="{{ .action }}" href="{{ .link }}">{{ .name }}</a></li>
+  {{ end }}
+</ul>

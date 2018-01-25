@@ -1,19 +1,33 @@
 {{ if eq ($.Scratch.Get "env") "site" }}
 {{ else }}
-  {{ partial "_uswds/notice-bar.html" . }}
+  <!-- {{ partial "_uswds/notice-bar.html" . }} -->
 {{ end }}
 
 <!-- {{ partial "_uswds/usa-banner.html" . }} -->
 
+<header>
+  <div class="usa-grid">
+    <div class="usa-width-one-whole">
+      <h1><a href="{{ "index.html" | absURL }}" title="DigitalGov"><span>DigitalGov</span><img src="https://s3.amazonaws.com/sitesusa/wp-content/uploads/sites/212/2014/01/logo2.png" alt="DigitalGov" /></a></h1>
+      <h2>We help you build better digital services for the public.</h2>
 
-<div id="header" class="clearfix">
-  <div id="head-content" class="clearfix">
-    <!-- SITE-TITLE/LOGO -->
-    <div id="sitetitle">
-      <a href="{{ "index.html" | absURL }}" title="DigitalGov"><img src="https://s3.amazonaws.com/sitesusa/wp-content/uploads/sites/212/2014/01/logo2.png" alt="DigitalGov" /></a>
+      <form accept-charset="UTF-8" action="https://find.digitalgov.gov/search" id="search_form" method="get">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+        <input id="affiliate" name="affiliate" type="hidden" value="digitalgov" />
+        <input autocomplete="off" class="usagov-search-autocomplete" id="query" name="query" type="text" />
+        <input name="commit" type="submit" value="Search" />
+      </form>
+
+      <nav>
+        <ul>
+          <li><a href="#" title="">Guides</a></li>
+          <li><a href="#" title="">Tools</a></li>
+          <li><a href="#" title="">Communities</a></li>
+          <li><a href="#" title="">Events</a></li>
+          <li><a href="#" title="">Training</a></li>
+        </ul>
+      </nav>
+
     </div>
-
-    {{ partial "nav-catnav.html" . }}
-
   </div>
-</div>
+</header>
