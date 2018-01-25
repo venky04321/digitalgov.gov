@@ -1,3 +1,11 @@
+{{ if eq ($.Scratch.Get "env") "site" }}
+{{ else }}
+  {{ partial "_uswds/notice-bar.html" . }}
+{{ end }}
+
+<!-- {{ partial "_uswds/usa-banner.html" . }} -->
+
+
 <div id="header" class="clearfix">
   <div id="head-content" class="clearfix">
     <!-- SITE-TITLE/LOGO -->
