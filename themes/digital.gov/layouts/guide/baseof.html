@@ -6,8 +6,8 @@
 {{- else -}}
   {{ block "pagevars" . }}{{ end }}
 
-  {{ partial "new_head.html" . }}
-  {{ partial "new_body-top.html" . }}
+  {{ partial "_uswds/new_head.html" . }}
+  {{ partial "_uswds/new_body-top.html" . }}
 
   {{ block "content" . }} The DOCS CONTENT didn't load. :( {{ end }}
 
