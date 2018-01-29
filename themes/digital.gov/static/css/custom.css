@@ -15,9 +15,6 @@ Add styles beneath this line that you want to be applied across your entire site
 	margin-top: 32px;
 }
 
-.tribe-events-list .tribe-events-event-image img {
-	max-width: 250px;
-}
 
 
 /* DESKTOP ONLY STYLES
@@ -155,4 +152,53 @@ Add styles inside the media query below that you only want to be applied to the 
 	.event_date{
 		display: inline-block;
 	}
+}
+
+
+
+/* ============================ */
+
+.entry-event,
+.entry-event h1,
+.event_date{
+	color:#000 !important;
+}
+.entry-event a{
+	color: #2673DF;
+}
+.entry-event .entry-head {
+	border-bottom: 1px #000 solid;
+}
+.entry-event h1{
+	margin-bottom: 18px;
+}
+.event_date{
+	font-size: 24px;
+	line-height: 32px;
+}
+.event_space{
+	margin-bottom: 40px;
+	border-bottom: 1px #000 solid;
+}
+.event_space .video,
+.event_space .chat{
+	display: inline-block;
+	vertical-align:top;
+}
+.event_space .video{
+	width:550px;
+}
+.event_space .chat{
+	width:405px;
+	background: orange;
+}
+
+.event_content h2,
+.event_content h3,
+.event_content h4{
+	color:#000 !important;
+}
+.event_content{
+	font-size: 18px;
+	max-width: 650px;
 }
