@@ -64,6 +64,7 @@
 
   </div>
 
+  {{ if (isset .Params "youtube_id") }}
   <div class="event_space">
     <div class="video">
       {{ partial "youtube.html" . }}
@@ -72,6 +73,7 @@
       <iframe allowfullscreen="" frameborder="0" width="400" height="270" src="https://www.youtube.com/live_chat?v={{ .Params.youtube_id }}&embed_domain=digitalgov.gov"></iframe>
     </div>
   </div>
+  {{ end }}
 
   <div class="event_content">
     {{ .Content }}
@@ -88,7 +90,7 @@
     Map: <a href="{{ .Params.venue.map }}" title="Google Map">{{ .Params.venue.map }}</a>
     </p>
   </div>
-  
+
   <!-- If event_type == "online" -->
   <!-- {{ if eq .Params.event_type "online" }} -->
     <!-- {{ partial "youtube.html" . }} -->
