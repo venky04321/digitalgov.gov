@@ -160,3 +160,9 @@ Add styles inside the media query below that you only want to be applied to the 
 .video{
 	margin-bottom: 24px;
 }
+
+.csv-export{
+	padding: 15px;
+	background: #efefef;
+	overflow-wrap: normal;
+}

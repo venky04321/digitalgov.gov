@@ -1,12 +1,16 @@
 jQuery(document).ready(function($) {
 
 
-
 $(".btn_events_past").click(function(e) {
 	$(this).hide();
 	e.preventDefault();
 	$("#events_past").show();
 });
+
+
+var csv = $('.csv-export').html();
+var trimmed = csv.replace(/\/g, '');
+$('.csv-export').html(trimmed);
 
 // Transforms the Edit link on posts/pages/events to point to the GitHub file
 function transform_edit_file_link(){

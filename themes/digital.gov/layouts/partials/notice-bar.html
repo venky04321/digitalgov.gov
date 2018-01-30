@@ -2,7 +2,6 @@
 {{ $findbaseurl := printf "^%s" $.Site.BaseURL }}
 {{ $cleanurl := replaceRE $findbaseurl "" $cleanurl }}
 {{ $cleanurl := replaceRE "(author|event)s/(.)" "$1/$2" $cleanurl }}
-{{ $cleanurl := replaceRE "categories/(.)" "category/$1" $cleanurl }}
 {{ $cleanurl := replaceRE "^(.)" "/$1" $cleanurl }}
 {{ $cleanurl := replaceRE "//" "/" $cleanurl }}
 {{ $siteslink := printf "https://%s" (printf "www.digitalgov.gov%s" $cleanurl) }}

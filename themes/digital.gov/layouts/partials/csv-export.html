@@ -1,0 +1,48 @@
+<div class="csv-export">
+  Date, Title, URL, Author, Categories, Tags
+{{ range .Pages }}
+  {{ .Date.Format "01/_2/06 03:00 PM" }}$$$$$"{{ .Title | markdownify }}"$$$$${{ .Permalink }}$$$$$
+
+  {{ if (not (isset .Params "categories")) | or (eq .Params.categories "") }}
+  {{ else }}
+    {{ $_cats := .Params.categories }}
+    {{ $.Scratch.Set "relatedCommunities" (slice) }}
+    {{ $length := $_cats | len }}
+    {{ range $i, $e := $_cats }}
+      {{ $slug := $e | urlize }}
+      {{ $category := index $.Site.Data.categories $slug }}
+      {{ with $category.communities }}
+        {{ range $community := . }}
+          {{ $.Scratch.Add "relatedCommunities" $community }}
+        {{ end }}
+      {{ end }}
+      {{ $link := printf "categories/%s/" $slug }}
+      {{ if lt (add $i 1) $length }}
+        {{ $category.display_name }}
+      {{ else }}
+        {{ $category.display_name }},
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ $sitetags := $.Site.Data.tag }}
+  {{ if (not (isset .Params "tag")) | or (eq .Params.tag "") }}
+  {{ else }}
+    {{ $_taxonomy := .Params.tag }}
+    {{ $length := $_taxonomy | len }}
+    {{ range $i, $e := $_taxonomy }}
+      {{ $slug := $e | urlize }}
+      {{ $tag := index $sitetags $slug }}
+      {{ $link := printf "tag/%s/" $slug }}
+      {{ if lt (add $i 1) $length }}
+        {{ $tag.display_name }}
+      {{ else }}
+        {{ $tag.display_name }},
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  *****
+
+{{ end }}
+</div>
