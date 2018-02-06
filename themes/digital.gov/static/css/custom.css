@@ -118,7 +118,12 @@ Add styles inside the media query below that you only want to be applied to the 
 .event_register{
 	background: #000;
 }
-
+span.addtocalendar{
+	background: #2673DF !important;
+}
+span.addtocalendar a{
+	color: #fff !important;
+}
 
 #events_past{
 	margin-top: 80px;
