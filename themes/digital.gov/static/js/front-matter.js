@@ -59,6 +59,10 @@ jQuery(document).ready(function($) {
     return output;
   }
 
+  var end_date = $('.m_end_date').val();
+  console.log('end_date');
+  console.log(end_date);
+
   // Gets today's time
   function curr_time(){
     var d = new Date();
@@ -85,6 +89,7 @@ jQuery(document).ready(function($) {
     });
   });
 
+
   // inputs the current date in the date field
   $('input[name="m_date"]').val(curr_date());
   $('input[name="m_time"]').val(curr_time());
@@ -102,13 +107,24 @@ jQuery(document).ready(function($) {
     }, 400);
   }
 
+  // Validation
+  function event_validation(){
+    console.log('check');
+    var start_date = $('.m_date .fm').val();
+    var end_date = $('.m_end_date .fm').val();
+    console.log(start_date);
+    console.log(end_date);
+  }
+
   // This watches for any keyup events (typing) in the form fields
   $( "#matter-maker .fm" ).keyup(function( event ) {
     get_matter_data();
+    event_validation();
   });
 
   $("#matter-maker .fm").change(function() {
     get_matter_data();
+    event_validation();
   });
 
 
