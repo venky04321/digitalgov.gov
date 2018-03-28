@@ -30,6 +30,15 @@ outputFormats:
     baseName: "siteimages"
     isPlainText: true
     notAlternative: true
+  Posts:
+    mediatype: "application/json"
+    baseName: "posts"
+    isPlainText: true
+  Events:
+    mediaType: "application/json"
+    baseName: "events"
+    isPlainText: true
+    notAlternative: true
   RSS:
     mediatype: "application/rss"
     baseName: "feed"
@@ -37,7 +46,7 @@ outputFormats:
 rssLimit: 20
 
 outputs:
-  home: ["HTML","RSS", "SiteImages"]
+  home: ["HTML","RSS","Events","Posts","SiteImages"]
 
 blackfriday:
   fractions: false
