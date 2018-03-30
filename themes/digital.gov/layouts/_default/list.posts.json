@@ -1,3 +1,4 @@
+
 {{ $posts := where .Site.Pages "Section" "posts" }}
 {{ $list := $posts -}}
 {{ $length := (len $list) -}}
@@ -13,7 +14,7 @@
     "icon" : "{{ . | absURL }}",
     {{ end -}}
     {{ with $.Param "favicon" -}}
-    "favicon" : "{{ . | absURL }}",
+    "favicon" : "{{ $.Param "favicon" }}",
     {{ end -}}
     {{ with .Site.Author.name -}}
     "author" : {

@@ -55,6 +55,7 @@ params:
   description: "DigitalGov: We’re helping you build a modern government."
   cdnurl: "https://s3.amazonaws.com/digitalgov"
   devmode: true
+  favicon: "https://s3.amazonaws.com/digitalgov/favicon.ico"
 
 permalinks:
   posts                 : ":year/:month/:day/:slug/"

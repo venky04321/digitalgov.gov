@@ -15,7 +15,7 @@
     "icon" : "{{ . | absURL }}",
     {{ end -}}
     {{ with $.Param "favicon" -}}
-    "favicon" : "{{ . | absURL }}",
+    "favicon" : "{{ $.Param "favicon" }}",
     {{ end -}}
     {{ with .Site.Author.name -}}
     "author" : {
