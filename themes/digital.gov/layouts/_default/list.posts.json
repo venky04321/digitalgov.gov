@@ -7,6 +7,8 @@
     "title" : "{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}",
     "description": "Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}",
     "home_page_url" : "{{ .Site.BaseURL }}",
+    "github_org" : "{{ .Site.BaseURL }}",
+    "github_repo" : "{{ .Site.BaseURL }}",
     {{ with .OutputFormats.Get "JSON" -}}
     "feed_url" : "{{ .Permalink }}",
     {{ end -}}
@@ -26,23 +28,49 @@
     "items" : [
     {{ range $index, $element := $list -}}
     {
-        "title" : {{ .Title | jsonify }},
-        {{ if .Params.summary -}}
-        "summary" : {{ .Params.summary | jsonify }},
-        {{ end -}}
-        "date_published" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-        {{ if .Lastmod -}}
-        "date_modified" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-        {{ else -}}
-        "date_modified" : "{{ .LastMod.Format "2006-01-02T15:04:05Z07:00" }}",
-        {{ end -}}
-        "id" : "{{ .Permalink }}",
-        "url" : "{{ .Permalink }}",
-        {{ with .Params.author -}}
-        "author" : {
-          "name" : "{{ . }}"
-        },
-        {{ end -}}
+      "url" : "{{ .Permalink }}",
+      {{ if .Params.summary -}}
+      "summary" : {{ .Params.summary | jsonify }},
+      {{ end -}}
+      "title" : {{ .Title | jsonify }},
+      "date_published" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      {{ if .Lastmod -}}
+      "date_modified" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      {{ else -}}
+      "date_modified" : "{{ .LastMod.Format "2006-01-02T15:04:05Z07:00" }}",
+      {{ end -}}
+      {{ if .Params.authors -}}
+
+      {{ $_authors := .Params.authors }}
+      {{ $length := $_authors | len }}
+      "authors" : [
+        {
+        {{ range $i, $e := $_authors }}
+          {{ $uid := $e | urlize }}
+          {{ $data := $.Site.Data }}
+          {{ $author := index $data.people.authors $uid }}
+            {{ if lt (add $i 1) $length }}
+            "name" : "{{ $author.display_name | default $uid}}",
+            {{ else }}
+            "name" : "{{ $author.display_name | default $uid}}"
+            {{ end }}
+        {{ end }}
+        }
+      ],
+      {{ end -}}
+      "file_path" : "{{.File.Path}}",
+      {{ if .GitInfo }}
+      "gitinfo" : [
+        {
+          "abbreviatedHash" : "{{ .GitInfo.AbbreviatedHash }} ",
+          "editorName" : "{{ .GitInfo.AuthorName }} ",
+          "editorEmail" : "{{ .GitInfo.AuthorEmail }} ",
+          "editorDate" : "{{ .GitInfo.AuthorDate }} ",
+          "hash" : "{{ .GitInfo.Hash }} ",
+          "subject" : "{{ .GitInfo.Subject }} "
+        }
+      ],
+      {{ end -}}
         "content_html" : {{ .Content | jsonify }}
     }{{ if ne (add $index 1) $length }},{{ end }}
     {{ end -}}

@@ -27,6 +27,10 @@
     "items" : [
     {{ range $index, $element := $list -}}
     {
+        "url" : "{{ .Permalink }}",
+        {{ if .Params.summary -}}
+        "summary" : {{ .Params.summary | jsonify }},
+        {{ end -}}
         "title" : {{ .Title | jsonify }},
         "date_published" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
         {{ if .Lastmod -}}
@@ -34,14 +38,27 @@
         {{ else -}}
         "date_modified" : "{{ .LastMod.Format "2006-01-02T15:04:05Z07:00" }}",
         {{ end -}}
-        "id" : "{{ .Permalink }}",
-        "url" : "{{ .Permalink }}",
         {{ with .Params.author -}}
         "author" : {
           "name" : "{{ . }}"
         },
         {{ end -}}
+        "file_path" : "{{.File.Path}}",
+        {{ if .GitInfo }}
+        "gitinfo" : [
+          {
+            "abbreviatedHash" : "{{ .GitInfo.AbbreviatedHash }} ",
+            "authorName" : "{{ .GitInfo.AuthorName }} ",
+            "authorEmail" : "{{ .GitInfo.AuthorEmail }} ",
+            "authorDate" : "{{ .GitInfo.AuthorDate }} ",
+            "authorDate" : "{{ .GitInfo.AuthorDate }} ",
+            "hash" : "{{ .GitInfo.Hash }} ",
+            "subject" : "{{ .GitInfo.Subject }} "
+          }
+        ],
+        {{ end -}}
         "content_html" : {{ .Content | jsonify }}
+
     }{{ if ne (add $index 1) $length }},{{ end }}
     {{ end -}}
     ]
