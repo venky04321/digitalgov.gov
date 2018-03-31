@@ -31,18 +31,10 @@
     {
         "slug" : "{{ .Params.slug }}",
         "url" : "{{ .Permalink }}",
+        "title" : {{ .Title | jsonify }},
         {{ if .Params.summary -}}
         "summary" : {{ .Params.summary | jsonify }},
         {{ end -}}
-        "title" : {{ .Title | jsonify }},
-        "date_modified" : "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-        {{ with .Params.author -}}
-        "author" : {
-          "name" : "{{ . }}"
-        },
-        {{ end -}}
-        "start_date" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-        "end_date" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
         {{ if (not (isset .Params "event_type")) | or (eq .Params.event_type "") }}
         {{ else }}
           {{ $_eventtype := .Params.event_type }}
@@ -60,6 +52,8 @@
             }
           ],
         {{ end }}
+        "start_date" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        "end_date" : "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
         "youtube_id" : "{{ .Params.youtube_id }}",
         "registration_url" : "{{ .Params.registration_url }}",
           {{ if (isset .Params "venue") }}
@@ -78,14 +72,15 @@
         {{ end -}}
 
         "file_path" : "{{.File.Path}}",
+        "last_modified" : "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
         {{ if .GitInfo }}
         "gitinfo" : [
           {
-            "lastModified" : "{{ .GitInfo.AuthorDate }} ",
-            "subject" : "{{ .GitInfo.Subject }} ",
-            "editorName" : "{{ .GitInfo.AuthorName }} ",
-            "editorEmail" : "{{ .GitInfo.AuthorEmail }} ",
-            "abbreviatedHash" : "{{ .GitInfo.AbbreviatedHash }} ",
+            "last_modified" : "{{ .GitInfo.AuthorDate }} ",
+            "commit_msg" : "{{ .GitInfo.Subject }} ",
+            "editor_name" : "{{ .GitInfo.AuthorName }} ",
+            "editor_email" : "{{ .GitInfo.AuthorEmail }} ",
+            "abbreviated_hash" : "{{ .GitInfo.AbbreviatedHash }} ",
             "hash" : "{{ .GitInfo.Hash }} "
           }
         ],
