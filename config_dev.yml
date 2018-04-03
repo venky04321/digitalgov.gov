@@ -26,9 +26,9 @@ sitemap:
   filename              : "sitemap.xml"
 
 outputFormats:
-  SiteImages:
+  Images:
     mediaType: "application/json"
-    baseName: "siteimages"
+    baseName: "images"
     isPlainText: true
     notAlternative: true
   Posts:
@@ -47,7 +47,7 @@ outputFormats:
 rssLimit: 20
 
 outputs:
-  home: ["HTML","RSS","Events","Posts","SiteImages"]
+  home: ["HTML","RSS","Events","Posts","Images"]
 
 blackfriday:
   fractions: false
