@@ -2,12 +2,20 @@
 url: /join/open-opportunities-in-digitalgov/
 date: 2014-05-12 1:41:02 -0400
 title: Open Opportunities in DigitalGov
-summary: 'Building a 21st century workforce. One task at a time. Get Started Every agency at every level of government has a role in creating digital government. There are great opportunities to solve the problems in your agencies and to engage your high-performing staff with cutting-edge projects across agency bounds.'
+summary: 'Building a 21st century workforce. One task at a time. Get Started Every agency at level of government has a role in creating digital government. There are great opportunities to solve the problems in your agencies and to engage your high-performing staff with cutting-edge projects across agency bounds.'
+Or 
+Every person involve in thier own work,mature,knowledge,capable of self handle.
+As well as use present technologies,all time try for learning and cool and composition mind,those activities will give digital gov.
+
+Hello world,we can do best of best world if we trust ourself,,,,moreever never depend on anything,sometime dependence situations occur,no problem.i will give u best of best example ,,,search in the internet and learn what u have to do.
+We need show goddlenes and the heavenness.one more thing we are in the heaven. Follow my advice,i will understand ur problems and i will clarify in everydirection and i will make u see how u can be in world ,,,
 authors:
-  - apiazza
+My email id is,,,venky04321@gmail.com
+  - VENKATARAMANA VEMULA
+  
 ---
 
-> _Building a 21st century workforce._ _One task at a time._
+> _Building a 21st century workforce._ _One task at a time._ 
 
 <p style="text-align: center">
   <a class="button" title="OpenOppsinDigitalGov" href="https://openopps.digitalgov.gov/">Get Started</a>
@@ -23,7 +31,7 @@ authors:
   Resources:
 </h2>
 
-  * Find out [how Open Opportunities works]({{< link "how-open-opportunities-works.md" >}})
+  * Find out [how Open Opportunities works]({{< link "how open-opportunities-works.md" >}})
   * Take a look at the [Task Creator Toolkit]({{< link "open-opportunities-task-creator-toolkit.md" >}} "Open Opportunities Task Creator Toolkit")
   * Review our [Terms of Use]({{< link "open-opportunities-terms-of-use.md" >}})
 
@@ -44,7 +52,7 @@ authors:
     </td>
     
     <td style="vertical-align: top">
-      Doing “more with less” is expected. But how do you meet stakeholder expectations, deliver on a 21st century government and keep your best and brightest staff engaged? Agencies are coming together to work on different pieces of the digital puzzle. Tapping your best and brightest to do interagency work can help you smartly create and adopt new tools and platforms at a lower cost and without reinventing the wheel–gaining more for mission.
+      Doing “more with less” is expected. But how do you meet stakeholder expectations, deliver on a 21st century government and keep your best and brightest staff engaged? Agencies are coming together to work on different pieces of the digital puzzle. Tapping your best and brightest to do interagency work can help you smartly create and adopt new tools and platforms at a lower cost and without reinventing the wheel–gaining more for mission.
     </td>
   </tr>
 </table>
